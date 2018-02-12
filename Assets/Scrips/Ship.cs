@@ -4,7 +4,7 @@ using UnityEngine;
 //Autores Rodrigo Samayoa y David Soto
 
 public class Ship : MonoBehaviour {
-    public float speed = 2f; //Velocidad a la que se movera la nave
+    public float speed = 4f; //Velocidad a la que se movera la nave
     Rigidbody2D rb;
 
     // Use this for initialization
@@ -14,8 +14,10 @@ public class Ship : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        float movX = Input.acceleration.x; //variable que instancia el acelerometro del dispositivo
-        rb.transform.Translate(Vector2.right * speed * movX * Time.deltaTime); //El comportamiento de como se trasladara el objeto
+        float movX = Input.acceleration.x; //variable que instancia el acelerometro del dispositivo en x
+        float movY = Input.acceleration.y; //variable que instancia el acelerometro del dispositivo en y
+        rb.transform.Translate(Vector2.right * speed * movX * Time.deltaTime); //El comportamiento de como se trasladara el objeto en x
+        rb.transform.Translate(Vector2.up * speed * movY * Time.deltaTime); //El comportamiento de como se trasladara el objeto en y
     }
 
     private void OnCollisionEnter2D(Collision2D collision) //Aqui persive si la nave tiene alguna colision con algun otro objeto 
