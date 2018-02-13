@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class Disparo : MonoBehaviour {
 
-	private Rigidbody rig;
+	private Rigidbody2D rig;
 	public float speed;
 
 
 	void Awake()
 	{
-		rig = GetComponent<Rigidbody> ();
+		rig = GetComponent<Rigidbody2D> ();
 	}
 
 
 	// Use this for initialization
 	void Start () 
 	{
-		rig.velocity = transform.forward * speed;
+		rig.velocity = transform.up * speed;
 	}
 }
