@@ -6,11 +6,18 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
-    public bool gamOver = false;
+	[Header("Jugador")]
+	public bool gamOver = false;
 	public float currentHighscore = 0;
 	public float time;
     public static GameController instance;
 	public Text timeLabel;
+
+	[Header("Disparo")]
+	public GameObject shot;
+	public Transform spawn; 
+	public float fireRate;
+	private float nextShot;
 
     // Use this for initialization
     void Start () {
@@ -20,12 +27,18 @@ public class GameController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if (gamOver == false) {
-			time += Time.deltaTime * 1000;
-			timeLabel.text = time.ToString ("n0");
-		} else 
+		//if (gamOver == false) {
+		//	time += Time.deltaTime * 1000;
+		//	timeLabel.text = time.ToString ("n0");
+		//} else  
+		//{
+		//	endGame();
+		//}
+
+		if (Input.GetButton ("Fire1") && Time.time > nextShot) 
 		{
-			endGame();
+			nextShot = Time.time + fireRate;
+			Instantiate (shot, spawn.position, Quaternion.identity);
 		}
     }
 
