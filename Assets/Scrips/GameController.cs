@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour {
 	public float currentHighscore = 0;
 	public float time;
     public static GameController instance;
-	public Text timeLabel;
+	public Text timeLabel2;
 
 	[Header("Disparo")]
 	public GameObject shot;
@@ -26,20 +26,21 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () 
-	{
-		//if (gamOver == false) {
-		//	time += Time.deltaTime * 1000;
-		//	timeLabel.text = time.ToString ("n0");
-		//} else  
-		//{
-		//	endGame();
-		//}
+	{ 
+		if (gamOver == false) {
+			time += Time.deltaTime * 1000;
+			timeLabel2.text = time.ToString ("n0");
+		}
+		else
+		{
+			endGame();
+		}
 
 		if (Input.GetButton ("Fire1") && Time.time > nextShot) 
 		{
 			nextShot = Time.time + fireRate;
 			Instantiate (shot, spawn.position, Quaternion.identity);
-		}
+		} 
     }
 
 	public void endGame()//funcion que declara cual es el highscore del jugador
