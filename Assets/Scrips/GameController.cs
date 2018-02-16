@@ -13,11 +13,7 @@ public class GameController : MonoBehaviour {
     public static GameController instance;
 	public Text timeLabel2;
 
-	[Header("Disparo")]
-	public GameObject shot;
-	public Transform spawn; 
-	public float fireRate;
-	private float nextShot;
+
 
     // Use this for initialization
     void Start () {
@@ -36,11 +32,7 @@ public class GameController : MonoBehaviour {
 			endGame();
 		}
 
-		if (Input.GetButton ("Fire1") && Time.time > nextShot) 
-		{
-			nextShot = Time.time + fireRate;
-			Instantiate (shot, spawn.position, Quaternion.identity);
-		} 
+
     }
 
 	public void endGame()//funcion que declara cual es el highscore del jugador

@@ -916,7 +916,6 @@ GameObject:
   - component: {fileID: 1095956785}
   - component: {fileID: 1095956789}
   - component: {fileID: 1095956788}
-  - component: {fileID: 1095956790}
   - component: {fileID: 1095956787}
   m_Layer: 0
   m_Name: playerShip1_orange
@@ -1010,6 +1009,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  shot: {fileID: 1243356104732348, guid: b2275c72f111f4aed8a0393a4a225146, type: 2}
+  spawn: {fileID: 137542510}
+  fireRate: 1
 --- !u!50 &1095956789
 Rigidbody2D:
   serializedVersion: 4
@@ -1030,24 +1032,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1095956790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1095956784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 140abb1f225cd3342a92aa89ae200fbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gamOver: 0
-  currentHighscore: 0
-  time: 0
-  timeLabel2: {fileID: 747267013}
-  shot: {fileID: 1243356104732348, guid: b2275c72f111f4aed8a0393a4a225146, type: 2}
-  spawn: {fileID: 137542510}
-  fireRate: 1
 --- !u!1 &1591910510
 GameObject:
   m_ObjectHideFlags: 0
@@ -1178,9 +1162,6 @@ MonoBehaviour:
   currentHighscore: 0
   time: 0
   timeLabel2: {fileID: 747267013}
-  shot: {fileID: 1243356104732348, guid: b2275c72f111f4aed8a0393a4a225146, type: 2}
-  spawn: {fileID: 137542510}
-  fireRate: 1
 --- !u!4 &1935817053
 Transform:
   m_ObjectHideFlags: 0
