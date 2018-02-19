@@ -19,4 +19,13 @@ public class Disparo : MonoBehaviour {
 	{
 		rig.velocity = transform.up * speed;
 	}
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "meteorBrown_big1(Clone)") //Condicion para desaparecer los asteroides
+        {
+            Destroy(gameObject); //Destruye el asteroide
+            //Debug.Log(collision.gameObject.name);
+        }
+    }
 }

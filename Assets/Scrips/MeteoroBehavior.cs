@@ -18,7 +18,7 @@ public class MeteoroBehavior : MonoBehaviour {
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.name == "laserBlue12 (2)") //Condicion para desaparecer los asteroides
+        if(collision.gameObject.name == "laserBlue12 (2)" || collision.gameObject.name == "Disparo(Clone)") //Condicion para desaparecer los asteroides
         {
             Destroy(gameObject); //Destruye el asteroide
             //Debug.Log(collision.gameObject.name);

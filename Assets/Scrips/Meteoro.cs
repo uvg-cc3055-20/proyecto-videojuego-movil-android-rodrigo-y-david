@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Meteoro : MonoBehaviour {
     public GameObject asteroide; //El objeto que se va a instanciar
-    public float spawnTime = 2f; //Tiempo que va a tardar oara crear otro objeto
+    public float spawnTime = 2f; //Tiempo que va a tardar para crear otro objeto
     public float elapsedTime = 0;
 	// Use this for initialization
 	void Start () {
@@ -14,7 +14,7 @@ public class Meteoro : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-     if(GameController.instance.gamOver == false){
+        if(GameController.instance.gamOver == false){
             if (elapsedTime < spawnTime)
             {
                 elapsedTime += Time.deltaTime;
@@ -26,5 +26,5 @@ public class Meteoro : MonoBehaviour {
                 elapsedTime = 0;
             }
         }
-        }
+    }
 }
