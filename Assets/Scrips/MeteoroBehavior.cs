@@ -4,7 +4,7 @@ using UnityEngine;
 //Autores Rodrigo Samayoa y David Soto
 
 public class MeteoroBehavior : MonoBehaviour {
-    public float speed = 4f;
+    public float speed = 6f;
     Rigidbody2D rb;
     // Use this for initialization
     void Start()
