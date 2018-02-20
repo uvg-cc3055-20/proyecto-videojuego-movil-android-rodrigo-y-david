@@ -18,6 +18,7 @@
           <e p="GameController.cs" t="Include" />
           <e p="Meteoro.cs" t="Include" />
           <e p="MeteoroBehavior.cs" t="Include" />
+          <e p="movimientoNave.cs" t="Include" />
           <e p="Ship.cs" t="Include" />
         </e>
       </e>
