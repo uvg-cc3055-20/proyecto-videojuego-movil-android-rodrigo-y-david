@@ -11,22 +11,21 @@ public class Disparo : MonoBehaviour {
 
 	void Awake()
 	{
-		rig = GetComponent<Rigidbody2D> ();
+		rig = GetComponent<Rigidbody2D> (); //Componente rigido del disparo
 	}
 
 
 	// Use this for initialization
 	void Start () 
 	{
-		rig.velocity = transform.up * speed;
+		rig.velocity = transform.up * speed; //Velocidad del disparo
 	}
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "meteorBrown_big1(Clone)") //Condicion para desaparecer los asteroides
+        if (collision.gameObject.name == "meteorBrown_big1(Clone)"|| collision.gameObject.name == "laserBlue12 (3)" || collision.gameObject.name == "meteorGrey_big2(Clone)" || collision.gameObject.name == "meteorBrown_med3(Clone)") //Condicion para desaparecer los disparos
         {
-            Destroy(gameObject); //Destruye el asteroide
-            //Debug.Log(collision.gameObject.name);
+            Destroy(gameObject); //Destruye el disparo
         }
     }
 }

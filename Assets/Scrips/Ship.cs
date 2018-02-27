@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 //Autores Rodrigo Samayoa y David Soto
 
 public class Ship : MonoBehaviour {
@@ -34,11 +35,23 @@ public class Ship : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision) //Aqui persive si la nave tiene alguna colision con algun otro objeto 
     {
-        if (collision.gameObject.name == "meteorBrown_big1(Clone)") //Se verifica si la nave choca con un asteroide clonado
+        if (collision.gameObject.name == "meteorBrown_big1(Clone)" || collision.gameObject.name == "meteorGrey_big2(Clone)" || collision.gameObject.name == "meteorBrown_med3(Clone)") //Se verifica si la nave choca con un asteroide clonado o cometa clonado
         {
-            GameController.instance.gamOver = true;
-            Application.LoadLevel("Menu"); //Carga la pantalla de inicio al perder
-            //Destroy(gameObject);
+            GameController.instance.vidas --; //Reduce el numero de vidas en 1 cada vez que choca
+            if (GameController.instance.vidas == 2) { //Verifica si solo quedan 2 vidas hay que destruir un corazon
+                Destroy(GameController.instance.corazon3); //Destruye corazon
+            }
+            if (GameController.instance.vidas == 1) //Verifica si solo queda 1 vida hay que destruir otro corazon
+            {
+                Destroy(GameController.instance.corazon2); //Destruye otro corazon
+            }
+            if (GameController.instance.vidas == 0) { //Termina el juego cuando las vidas son 0
+                GameController.instance.gamOver = true;
+                SceneManager.LoadScene("Menu", LoadSceneMode.Single); //Cambia de scena a la de menu de inicio
+                //Application.LoadLevel("Menu"); //Carga la pantalla de inicio al perder
+                //Destroy(gameObject);
+            }
+
         }
     }
 }

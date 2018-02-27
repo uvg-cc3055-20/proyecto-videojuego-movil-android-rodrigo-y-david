@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//Autores Rodrigo Samayoa y David Soto
 
 public class movimientoNave : MonoBehaviour {
 
@@ -29,20 +30,20 @@ public class movimientoNave : MonoBehaviour {
  
     public void MoverDerecha()
     {
-        derecha = true;
+        derecha = true; //Movimiento a la derecha
     }
  
     public void MoverIzqda()
     {
-        izquierda = true;
+        izquierda = true; //Movimiento a la izquierda
     }
     
     public void MoverDere()
     {
-        derecha = false;
+        derecha = false; //Movimiento a derecha
     }
  
-    public void MoverIzquierda()
+    public void MoverIzquierda() //Movimiento a la izquierda
     {
         izquierda = false;
     }

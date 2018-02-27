@@ -6,7 +6,11 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
-	[Header("Jugador")]
+    [Header("Jugador")]
+    public GameObject corazon1;
+    public GameObject corazon2;
+    public GameObject corazon3;
+    public int vidas = 3;
 	public bool gamOver = false;
 	public float currentHighscore = 0;
 	public float time;
@@ -38,6 +42,7 @@ public class GameController : MonoBehaviour {
 	public void endGame()//funcion que declara cual es el highscore del jugador
 	{
 		gamOver = false;
+        vidas = 3;
 		currentHighscore = PlayerPrefs.GetFloat("Highscore");	
 		if(currentHighscore < time)
 		{
