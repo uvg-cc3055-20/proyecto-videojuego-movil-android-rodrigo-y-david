@@ -7,6 +7,8 @@ public class Piedrita : MonoBehaviour {
     public GameObject piedrita; //El objeto que se va a instanciar
     public float spawnTime = 2f; //Tiempo que va a tardar para crear otro objeto
     public float elapsedTime = 0;
+
+    public ParticleSystem fire;
     // Use this for initialization
     void Start () {
 		
@@ -26,6 +28,14 @@ public class Piedrita : MonoBehaviour {
                 Instantiate(piedrita, new Vector3(random, 5, 0), Quaternion.identity); //Se genera la piedrita
                 elapsedTime = 0; //El tiempo para generar comienza de nuevo
             }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Untagged"))
+        {
+            fire.Play();
         }
     }
 }

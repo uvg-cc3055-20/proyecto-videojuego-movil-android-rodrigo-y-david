@@ -13,6 +13,7 @@ public class Ship : MonoBehaviour {
 	public Transform spawn; 
 	public float fireRate;
 	private float nextShot;
+	public AudioSource audio;
 
     // Use this for initialization
     void Start() {
@@ -30,6 +31,7 @@ public class Ship : MonoBehaviour {
 	    {
 	        nextShot = Time.time + fireRate;
 	        Instantiate (shot, spawn.position, Quaternion.identity);
+		    audio.Play();	    
 	    } 
     }
 
@@ -47,7 +49,7 @@ public class Ship : MonoBehaviour {
             }
             if (GameController.instance.vidas == 0) { //Termina el juego cuando las vidas son 0
                 GameController.instance.gamOver = true;
-                SceneManager.LoadScene("Menu", LoadSceneMode.Single); //Cambia de scena a la de menu de inicio
+                SceneManager.LoadScene("Final", LoadSceneMode.Single); //Cambia de scena a la de menu de inicio
                 //Application.LoadLevel("Menu"); //Carga la pantalla de inicio al perder
                 //Destroy(gameObject);
             }
