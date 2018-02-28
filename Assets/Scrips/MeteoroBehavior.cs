@@ -6,6 +6,8 @@ using UnityEngine;
 public class MeteoroBehavior : MonoBehaviour {
     public float speed = 6f;
     Rigidbody2D rb;
+    public GameObject particulas;
+    public AudioSource audio;
     // Use this for initialization
     void Start()
     {
@@ -18,10 +20,18 @@ public class MeteoroBehavior : MonoBehaviour {
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.name == "laserBlue12 (2)" || collision.gameObject.name == "Disparo(Clone)" || collision.gameObject.name == "playerShip1_orange") //Condicion para desaparecer los asteroides
+        if(collision.gameObject.name == "Disparo(Clone)" || collision.gameObject.name == "playerShip1_orange") //Condicion para desaparecer los asteroides
         {
+            Instantiate(particulas, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity); //se instancian las particulas
+            Instantiate(audio, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
+            //audio.Play();
             Destroy(gameObject); //Destruye el asteroide
             //Debug.Log(collision.gameObject.name);
+        }
+
+        if (collision.gameObject.name == "laserBlue12 (2)")
+        {
+            Destroy(gameObject); //Destruye el asteroide
         }
     }
 }

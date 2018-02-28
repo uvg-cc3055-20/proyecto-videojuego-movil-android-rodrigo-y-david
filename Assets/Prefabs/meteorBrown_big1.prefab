@@ -90,6 +90,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
+  particulas: {fileID: 1855375416190654, guid: ace843bbbe064494a88edd9dc1ff148a, type: 2}
+  audio: {fileID: 82645693593016888, guid: b4666dab6a9bf4bafbed1272c5b5cb06, type: 2}
 --- !u!212 &212748259878990292
 SpriteRenderer:
   m_ObjectHideFlags: 1
